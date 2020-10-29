@@ -30,12 +30,12 @@
 
 
   <div class="container">
-    <h2><span style="color:rgb(131, 199, 26);">Welcome</span>, John Doe</h2>
-    <div class="card" style="width:400px">
+    <h2><span style="color:rgb(131, 199, 26);">Welcome</span>, {{User.Name}}</h2>
+    <div class="card" style="width:405px">
       <img class="card-img-top" src="../../assets/images/avatar1.png" alt="Card image" style="width:100%">
       <div class="card-body">
-        <h4 class="card-title">Department | Job title</h4>
-        <p class="card-text">email@gmail.com</p>
+        <h4 class="card-title">{{User.Department}} | {{User.JobTitle}}</h4>
+        <p class="card-text">{{User.Email}}</p>
         <a href="#" class="btn btn-dark stretched-link">Edit Profile</a>
       </div>
     </div>
