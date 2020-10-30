@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ReqLeaveService } from '../req-leave.service';
 import { UserComponent } from './user/user.component';
 import { User } from './user/UserModel';
 
@@ -17,5 +18,7 @@ export class HomeComponent implements OnInit {
   JobTitle: "Software developer"};
   ngOnInit(): void {
   }
+
+ 
 
 }

@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {NgbDate, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
+import { ReqLeaveService } from 'src/app/req-leave.service';
 
 @Component({
   selector: 'app-calendar',
@@ -13,9 +14,10 @@ export class NgbdDatepickerRange {
   fromDate: NgbDate;
   toDate: NgbDate | null = null;
 
-  constructor(calendar: NgbCalendar) {
+  constructor(calendar: NgbCalendar, private LeaveReqeust : ReqLeaveService) {
     this.fromDate = calendar.getToday();
     this.toDate = calendar.getNext(calendar.getToday(), 'd', 0);
+    
   }
 
   onDateSelection(date: NgbDate) {
@@ -41,5 +43,8 @@ export class NgbdDatepickerRange {
     return date.equals(this.fromDate) || (this.toDate && date.equals(this.toDate)) || this.isInside(date) || this.isHovered(date);
   }
 
-  
+  SendReq()
+  {
+    this.LeaveReqeust.SendRequest();
+  }
 }
