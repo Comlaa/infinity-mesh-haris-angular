@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { UserComponent } from './home/user/user.component';
 import { NgbdDatepickerRange} from './home/ngbd-datepicker-range/ngbd-datepicker-range.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LeaveComponent } from './leave/leave.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +18,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RegistrationComponent,
     HomeComponent,
     UserComponent,
-    NgbdDatepickerRange
+    NgbdDatepickerRange,
+    LeaveComponent,
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    RouterModule.forRoot([
+      {path:'home', component:HomeComponent},
+      {path:'leave', component:LeaveComponent},
+      {path: '', redirectTo: '/leave', pathMatch: 'full'}
+  ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
