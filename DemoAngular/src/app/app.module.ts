@@ -10,6 +10,7 @@ import { UserComponent } from './home/user/user.component';
 import { NgbdDatepickerRange} from './home/ngbd-datepicker-range/ngbd-datepicker-range.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LeaveComponent } from './leave/leave.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,10 +27,11 @@ import { LeaveComponent } from './leave/leave.component';
     BrowserModule,
     FormsModule,
     NgbModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path:'home', component:HomeComponent},
       {path:'leave', component:LeaveComponent},
-      {path: '', redirectTo: '/leave', pathMatch: 'full'}
+      {path: '', redirectTo: '/home', pathMatch: 'full'}
   ]),
   ],
   providers: [],

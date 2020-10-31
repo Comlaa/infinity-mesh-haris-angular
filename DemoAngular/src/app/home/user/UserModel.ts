@@ -1,9 +1,9 @@
 
 export interface User
 {
-    Id : number,
-    Name : string,
-    Email : string,
-    Department : string,
-    JobTitle: string,
+    id : number,
+    name : string,
+    email : string,
+    department : string,
+    jobTitle: string,
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { MessageService } from 'src/app/message.service';
 import { UserService } from 'src/app/user.service';
-import { users } from './mock-user';
 import {User} from './UserModel'
 
 @Component({
@@ -13,9 +13,9 @@ export class UserComponent {
   UName : string;
   SelectedUser : User;
   constructor( private userService : UserService, private messageService : MessageService) { }
-  users:User[];
+  users:Observable<User[]>;
   ngOnInit(): void {
-    this.users = this.userService.getUsers();
+    //this.users = this.userService.getUsers();
   }
   ShowDetails()
   {

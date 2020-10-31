@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ReqLeaveService } from '../req-leave.service';
 import { UserComponent } from './user/user.component';
 import { User } from './user/UserModel';
+import {UserService} from '../user.service'
 
 @Component({
   selector: 'app-home',
@@ -10,15 +12,28 @@ import { User } from './user/UserModel';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
-  User : User = { Id:5,
-  Name:"Haris Mlaco",
-  Email:"haris.mlaco@infinity.com",
-  Department: "Engineering",
-  JobTitle: "Software developer"};
+  constructor(private UserService : UserService) { }
+  users : User[];
+  user : User ={
+    id:10000,
+    name: 'name',
+    email: 'email',
+    jobTitle: 'jobTitle',
+    department: 'department'
+  }
+   
   ngOnInit(): void {
+    this.UserService.getUser(1).subscribe(user => this.user = user);
+    
   }
 
+  GetUsers() : void
+  {
+    this.UserService.getUsers().subscribe(users => this.users = users);   
+  }
  
-
+  UserCheck()
+  {
+    console.log(this.user.id);
+  }
 }
