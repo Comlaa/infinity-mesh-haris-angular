@@ -24,16 +24,11 @@ export class HomeComponent implements OnInit {
    
   ngOnInit(): void {
     this.UserService.getUser(1).subscribe(user => this.user = user);
-    
-  }
+    this.getUsers();
+  } 
 
-  GetUsers() : void
+  getUsers()
   {
-    this.UserService.getUsers().subscribe(users => this.users = users);   
-  }
- 
-  UserCheck()
-  {
-    console.log(this.user.id);
+    this.UserService.getUsers().subscribe(users => this.users = users.collection);  
   }
 }
