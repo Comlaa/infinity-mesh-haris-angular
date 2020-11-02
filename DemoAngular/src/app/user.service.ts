@@ -10,7 +10,6 @@ export class UserService {
 
   constructor(private http : HttpClient) { }
   private GetUsersUrl = 'https://localhost:44329/api/generic/GetUsers';
-  private TestLink = 'https://localhost:44329/api/user/get';
   private GetUserUrl = 'https://localhost:44329/api/generic/getUserById';
   private AddUserUrl = 'https://localhost:44329/api/generic/AddUser';
 

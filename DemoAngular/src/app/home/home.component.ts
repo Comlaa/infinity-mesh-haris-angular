@@ -29,6 +29,6 @@ export class HomeComponent implements OnInit {
 
   getUsers()
   {
-    this.UserService.getUsers().subscribe(users => this.users = users.collection);  
-  }
+    this.UserService.getUsers().subscribe(users => this.users = users);  
+  } 
 }
