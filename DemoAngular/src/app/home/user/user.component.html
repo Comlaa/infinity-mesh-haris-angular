@@ -1,23 +1,35 @@
-<h1>User Page</h1>
+<div class="d-flex flex-row">
+<div class="container">
+    <div class="card" style="width:450px" >
+      <img class="card-img-top" src="../../assets/images/avatar1.png" alt="Card image" style="width:98%">
+      <div class="card-body">
+        <h2 class="card-title"><span class="MainNameCss">{{user.name}}</span></h2>
+        <h5 class="card-text">{{user.department}} | {{user.jobTitle}}</h5>
+        <hr>
+        <h5 class="card-text">{{user.email}}</h5>
+        <hr>
+      </div>
+    </div>
+    <br>
+  </div>
 
- <main>
-    <ol class="gradient-list">
-        <li *ngFor = "let user of users" [class.selected]="user === SelectedUser" (click)="onSelect(user)">
-            {{user.Name}}
-         </li>
-    </ol>
-    <input [(ngModel)]="UName" placeholder="Name">
-    {{UName}}
-</main>
-        <div *ngIf="SelectedUser" Id="UserInfo">
-            <h2>{{SelectedUser.Name | uppercase}} Details</h2>
-            <div class="DetailInfo"><span>Id: </span>{{SelectedUser.Id}}</div>
-            <div class="DetailInfo"><span>Email: </span>{{SelectedUser.Email}}</div>
-            <div class="DetailInfo"><span>Department: </span>{{SelectedUser.Department}}</div>
-            <div class="DetailInfo"><span>Job Title: </span>{{SelectedUser.JobTitle}}</div>
-        </div>
+  <div class ="InputContainer">
+    <form [formGroup]="UserForm" (ngSubmit)="AddNewUser(UserForm.value)">
+      <h3>Add new user</h3>
+      <hr>
+      <h5>Firstname and lastname</h5>
+      <input formControlName="name">
+      <h5>Department</h5>
+      <input formControlName="department">
+      <h5>Job title</h5>
+      <input formControlName="jobTitle">
+      <h5>Email adress</h5>
+      <input formControlName="email">
+      <h5>Password</h5>
+      <input type="password" formControlName="password">
+      <a style="float:right" class="btn btn-dark" (click)="AddNewUser(UserForm.value)" type="ngSubmit" value="ngSubmit">Submit</a>
+    </form>
+  </div>
 
-        <button (click)="addMessage()">Add Message</button>
-        <button (click)="clearMessage()">Clear Messages</button>
-<app-registration></app-registration>
+</div>
 

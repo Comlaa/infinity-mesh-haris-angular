@@ -19,7 +19,8 @@ export class HomeComponent implements OnInit {
     name: 'name',
     email: 'email',
     jobTitle: 'jobTitle',
-    department: 'department'
+    department: 'department',
+    password: 'password',
   }
    
   ngOnInit(): void {

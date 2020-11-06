@@ -28,7 +28,7 @@ export class UserService {
     return this.http.get<User>(url, this.httpOptions);
   }
 
-  addHero(user: User): Observable<User> 
+  addUser(user: User): Observable<User> 
   {
     return this.http.post<User>(this.AddUserUrl, user, this.httpOptions)
   }

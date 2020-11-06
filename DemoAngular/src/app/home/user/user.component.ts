@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { MessageService } from 'src/app/message.service';
 import { UserService } from 'src/app/user.service';
@@ -10,31 +11,37 @@ import {User} from './UserModel'
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent {
-  UName : string;
-  SelectedUser : User;
-  constructor( private userService : UserService, private messageService : MessageService) { }
+
+  user : User ={
+    id:10000,
+    name: 'name',
+    email: 'email',
+    jobTitle: 'jobTitle',
+    department: 'department',
+    password: 'password',
+  }
   users:Observable<User[]>;
+  UserForm;
+  constructor( private userService : UserService, private formBuilder : FormBuilder) 
+  { 
+    this.UserForm = formBuilder.group({
+      name:'',
+      password:'',
+      department:'',
+      jobTitle:'',
+      email:'',
+    });
+  }
   ngOnInit(): void {
-    //this.users = this.userService.getUsers();
+    this.userService.getUser(1).subscribe(user => this.user = user);
   }
-  ShowDetails()
+ 
+  AddNewUser(newUser)
   {
-      this.UName = this.UName;
+    this.userService.addUser(newUser).subscribe();
+    this.UserForm.reset();
+    console.log("Pozvan");
+    alert("User Added!");
   }
-  onSelect(_User : User)
-  {
-    this.SelectedUser = _User;
-  }
-
-  addMessage()
-  {
-    this.messageService.add("From User");
-    console.log("Messages: ", this.messageService.messages);
-  }
-
-  clearMessage()
-  {
-    this.messageService.clear();
-    console.log("Messages: ", this.messageService.messages);
-  }
+  
 }

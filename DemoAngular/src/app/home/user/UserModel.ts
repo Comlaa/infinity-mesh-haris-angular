@@ -6,4 +6,5 @@ export interface User
     email : string,
     department : string,
     jobTitle: string,
+    password : string,
 }
